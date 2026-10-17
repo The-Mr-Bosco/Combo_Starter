@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ComboStarter.Core/ComboStarter.Core.csproj" />
+    <Project Path="src/ComboStarter.Cli/ComboStarter.Cli.csproj" />
+  </Folder>
+</Solution>

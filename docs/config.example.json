@@ -1,0 +1,47 @@
+{
+  // ComboStarter configuration (JSON with comments).
+  //
+  // Paths may be absolute, or relative to this config file. Use forward slashes
+  // on Windows if you prefer: "C:/Tools/app.exe". Supported placeholders:
+  //   {file} {fileDir} {fileName} {fileStem}
+  // Environment variables (~, %VAR% on Windows, $VAR on Linux) are expanded too.
+
+  "version": 1,
+
+  // Programs used to open documents when a rule does not specify one.
+  "openers": {
+    ".md": "code"
+  },
+
+  "detection": {
+    // Skip targets that ComboStarter already launched and that are still open.
+    "enabled": true,
+    // Trust an opener that is still running for at most this long. 0 = only
+    // trust a matching process id.
+    "maxAgeMinutes": 720
+  },
+
+  "rules": [
+    {
+      "name": "Markdown",
+      "match": {
+        "extensions": [".md", ".markdown"]
+      },
+      // Open the file that triggered the rule as well (default: true).
+      "openSelf": true,
+      "open": [
+        { "path": "{fileDir}/README.md" }
+      ]
+    },
+    {
+      "name": "Solution",
+      "match": {
+        "fileNames": ["*.sln", "*.slnx"]
+      },
+      // "program" runs a command; "path" opens a file, folder or executable.
+      "open": [
+        { "program": "code", "args": ["{fileDir}"] }
+      ]
+    }
+  ]
+}
